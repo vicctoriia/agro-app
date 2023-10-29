@@ -1,0 +1,55 @@
+swagger: "2.0"
+info:
+  title: Agro Data API
+  description: Agro Data API.
+  version: 1.0.0
+host: https://agro-app.fly.dev
+basePath: /
+schemes:
+  - https
+paths:
+  /crop-data:
+    get:
+      summary: Returns a crop.data dataset.
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: cod_variavel
+          schema:
+            type: integer
+          required: false
+          description:  109 =	Área plantada
+
+                        214	= Quantidade produzida
+
+                        216	= Área colhida
+
+                        215	= Valor da produção
+
+                        112	= Rendimento médio da produção
+        - in: path
+          name: cod_produto_lavouras_temporarias
+          schema:
+            type: integer
+          required: false
+          description: 114254 = Milho (em grão) - 2ª safra
+
+                      2713 = Soja (em grão)
+
+                      114253 = Milho (em grão) - 1ª safra   
+        - in: path
+          name: cod_ano
+          schema:
+            type: integer
+          required: false
+          description: Ano de referência no formato YYYY
+        - in: path
+          name: cod_municipio
+          schema:
+            type: integer
+          required: false
+          description: Código IBGE do munícipio                              
+      responses:
+        200:
+          description: OK
